@@ -19,7 +19,7 @@ import (
 func main() {
 	tcpAddr := flag.String("tcp", ":1883", "network address for TCP listener")
 	wsAddr := flag.String("ws", ":1882", "network address for Websocket listener")
-	infoAddr := flag.String("info", ":8080", "network address for web info dashboard listener")
+	infoAddr := flag.String("info", ":8180", "network address for web info dashboard listener")
 	flag.Parse()
 
 	sigs := make(chan os.Signal, 1)
