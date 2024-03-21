@@ -19,7 +19,7 @@ import (
 func main() {
 	tcpAddr := flag.String("tcp", ":1883", "network address for TCP listener")
 	wsAddr := flag.String("ws", ":1882", "network address for Websocket listener")
-	infoAddr := flag.String("info", ":8180", "network address for web info dashboard listener")
+	infoAddr := flag.String("info", ":8080", "network address for web info dashboard listener")
 	flag.Parse()
 
 	sigs := make(chan os.Signal, 1)
@@ -30,14 +30,25 @@ func main() {
 		done <- true
 	}()
 
-	server := mqtt.New(nil)
-	_ = server.AddHook(new(auth.AllowHook), nil)
+	data, err := os.ReadFile("env/auth.yaml")
+	if err != nil {
+		log.Fatal(err)
+	}
 
+	server := mqtt.New(nil)
+	//_ = server.AddHook(new(auth.AllowHook), nil)
+	err = server.AddHook(new(auth.Hook), &auth.Options{
+		Data: data, // build ledger from byte slice, yaml or json
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	
 	tcp := listeners.NewTCP(listeners.Config{
 		ID:      "t1",
 		Address: *tcpAddr,
 	})
-	err := server.AddListener(tcp)
+	err = server.AddListener(tcp)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -1,0 +1,53 @@
+auth:
+    - username: backend
+      password: Backend!321
+      allow: true
+    - username: frontend
+      password: Frontend!321
+      allow: true
+    - username: eltako
+      password: Eltako!321
+      allow: true
+    - username: qlight
+      password: Qlight!321
+      allow: true
+    - username: zlan
+      password: Zlan!321
+      allow: true
+    - username: janitza
+      password: Janitza!321
+      allow: true
+    - username: rs485
+      password: Rs485!321
+      allow: true
+    # - remote: 127.0.0.1:*
+    #   allow: true
+    # - remote: localhost:*
+    #   allow: true
+acl:
+# 0 = deny, 1 = read only, 2 = write only, 3 = read and write
+    - remote: 127.0.0.1:*
+    - username: backend
+      filters:
+        '#': 3
+    - username: frontend
+      filters:
+        '#': 3
+    - username: eltako
+      filters:
+        device/eltako/#: 2
+    - username: qlight
+      filters:
+        device/qlight/#: 3
+    - username: zlan
+      filters:
+        device/zlan/#: 3
+    - username: janitza
+      filters:
+        device/janitza/#: 3
+    - username: rs485
+      filters:
+        device/rs485/#: 3
+#    - filters:
+#        '#': 1
+#        updates/#: 0
