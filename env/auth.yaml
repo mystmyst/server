@@ -48,6 +48,6 @@ acl:
     - username: rs485
       filters:
         device/rs485/#: 3
-#    - filters:
-#        '#': 1
-#        updates/#: 0
+    - filters:
+        '#': 1
+        updates/#: 0
