@@ -116,8 +116,9 @@ func main() {
 	}
 
 	tcp := listeners.NewTCP(listeners.Config{
-		ID:      "t1",
-		Address: *tcpAddr,
+		ID:        "t1",
+		Address:   *tcpAddr,
+		TLSConfig: wsTlsConfig,
 	})
 	err = server.AddListener(tcp)
 	if err != nil {
@@ -125,9 +126,8 @@ func main() {
 	}
 
 	ws := listeners.NewWebsocket(listeners.Config{
-		ID:        "ws1",
-		Address:   *wsAddr,
-		TLSConfig: wsTlsConfig,
+		ID:      "ws1",
+		Address: *wsAddr,
 	})
 	err = server.AddListener(ws)
 	if err != nil {
