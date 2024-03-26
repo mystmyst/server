@@ -118,7 +118,7 @@ func main() {
 	tcp := listeners.NewTCP(listeners.Config{
 		ID:        "t1",
 		Address:   *tcpAddr,
-		TLSConfig: wsTlsConfig,
+		//TLSConfig: wsTlsConfig,
 	})
 	err = server.AddListener(tcp)
 	if err != nil {
