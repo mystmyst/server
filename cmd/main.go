@@ -5,7 +5,6 @@
 package main
 
 import (
-	"crypto/tls"
 	"flag"
 	"log"
 	"os"
@@ -79,15 +78,16 @@ var (
 
 func main() {
 
-	wsCert, err := tls.X509KeyPair(wsCetificate, wsPrivateKey)
-	if err != nil {
-		log.Fatal(err)
-	}
+	/*
+		wsCert, err := tls.X509KeyPair(wsCetificate, wsPrivateKey)
+		if err != nil {
+			log.Fatal(err)
+		}
 
-	wsTlsConfig := &tls.Config{
-		Certificates: []tls.Certificate{wsCert},
-	}
-
+		wsTlsConfig := &tls.Config{
+			Certificates: []tls.Certificate{wsCert},
+		}
+	*/
 	tcpAddr := flag.String("tcp", ":1883", "network address for TCP listener")
 	wsAddr := flag.String("ws", ":1882", "network address for Websocket listener")
 	infoAddr := flag.String("info", ":8080", "network address for web info dashboard listener")
@@ -116,8 +116,8 @@ func main() {
 	}
 
 	tcp := listeners.NewTCP(listeners.Config{
-		ID:        "t1",
-		Address:   *tcpAddr,
+		ID:      "t1",
+		Address: *tcpAddr,
 		//TLSConfig: wsTlsConfig,
 	})
 	err = server.AddListener(tcp)
