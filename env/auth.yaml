@@ -38,7 +38,7 @@ acl:
         '#': 3
     - username: appliance
       filters:
-        appliance/#: 1
+        appliance/#: 0
     - username: eltako
       filters:
         device/eltako/#: 2
