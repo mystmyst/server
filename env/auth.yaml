@@ -46,15 +46,19 @@ acl:
         device/eltako/#: 2
     - username: qlight
       filters:
+        '#': 0
         device/qlight/#: 3
     - username: zlan
       filters:
+        '#': 0
         device/zlan/#: 3
     - username: janitza
       filters:
+        '#': 0
         device/janitza/#: 3
     - username: rs485
       filters:
+        '#': 0
         device/rs485/#: 3
     - filters:
         '#': 1
