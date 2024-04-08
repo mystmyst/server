@@ -63,4 +63,4 @@ acl:
     - filters:
         '#': 1
         updates/#: 0
-        $SYS: 0
+        $SYS/#: 0
