@@ -38,9 +38,11 @@ acl:
         '#': 3
     - username: appliance
       filters:
+        '#': 0
         appliance/#: 2
     - username: eltako
       filters:
+        '#': 0
         device/eltako/#: 2
     - username: qlight
       filters:
