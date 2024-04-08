@@ -2,8 +2,8 @@ auth:
     - username: backend
       password: Backend!321
       allow: true
-    - username: aplliance
-      password: Aplliance!321
+    - username: appliance
+      password: Appliance!321
       allow: true
     - username: frontend
       password: Frontend!321
