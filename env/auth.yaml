@@ -2,6 +2,9 @@ auth:
     - username: backend
       password: Backend!321
       allow: true
+    - username: aplliance
+      password: Aplliance!321
+      allow: true
     - username: frontend
       password: Frontend!321
       allow: true
@@ -33,6 +36,9 @@ acl:
     - username: frontend
       filters:
         '#': 3
+    - username: aplliance
+      filters:
+        aplliance/#: 2
     - username: eltako
       filters:
         device/eltako/#: 2
